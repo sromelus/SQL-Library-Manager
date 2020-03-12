@@ -1,5 +1,9 @@
 body {
-  padding: 10px 50px 50px;
+  padding: 5%;
+  margin: auto;
+  width: 55%;
+  border: 3px solid #73AD21;
+  padding: 50px;
   font: 18px "Garamond", serif;
 }
 
@@ -13,6 +17,16 @@ a {
   a:hover {
     color: black;
   }
+
+.button {
+  color: white;
+  background: #019875;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 10px 14px 12px;
+  font-size: 14px;
+  border-radius: 2px;
+  cursor: pointer;
+}
 
 a.button, input[type=submit] {
   color: white;
@@ -88,10 +102,16 @@ input {
 }
 
 input[type=text] {
-  margin-left: 7px;
-  width: 300px;
+  margin-left: 1px;
+  width: 200px;
+  outline: none;
 }
 
 .error {
   color: rgb(236, 15, 15);
+}
+
+.header {
+  margin-right: 15%;
+  display: flex;
 }

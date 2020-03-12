@@ -1,9 +1,18 @@
 extends ../layout
 
 block content
+  
   h1 Books
-  p
-    a.button(href='/books/new') Create New Book
+  
+  .header
+    p
+      a.button(href='/books/new') Add New Book
+      
+    form
+      p
+        input(name='title', type='text', size='100')
+        button.button(type='submit') Search
+    
   table
     thead
       tr

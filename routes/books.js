@@ -8,6 +8,7 @@ function asyncHandler(cb){
     try {
       await cb(req, res, next)
     } catch(error){
+      // console.error(error);
       res.status(500).send(error);
     }
   }
@@ -43,10 +44,11 @@ router.post('/', asyncHandler(async (req, res) => {
 
 router.get('/:id', asyncHandler(async (req, res) => {
   const book = await Book.findByPk(req.params.id);
+  // throw new Error()
   if (book) {
     res.render('books/update-book' , { book, title: 'Update Book'} );
   } else {
-    res.sendStatus(404);
+    res.render('error', { title: 'Page Not Found', servError: 'Server Error' });
   }
 }));
 

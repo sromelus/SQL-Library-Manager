@@ -35,11 +35,7 @@ app.use((err, req, res, next) => {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error',
-    {
-      title: 'Page Not Found',
-      servError: 'Server Error'
-    });
+  res.render('page-not-found', { error: err, title: 'Page Not Found' });
 });
 
 module.exports = app;
