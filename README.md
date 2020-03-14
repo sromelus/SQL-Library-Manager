@@ -1,6 +1,6 @@
 # Library Manager
 
-Library Manager is web application that simulates a library portal. The app has four main functionality. It allows a user to add, update, see and delete a book.   
+Library Manager is web application that simulates a library portal. The app has four main functionality so a user can add, update, see and delete a book. All books in the library are display in descending order based on the time they were added.
 
 ##Installation
 
