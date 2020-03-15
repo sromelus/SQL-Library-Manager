@@ -44,11 +44,10 @@ router.post('/new', asyncHandler(async (req, res) => {
 
 router.get('/:id', asyncHandler(async (req, res) => {
   const book = await Book.findByPk(req.params.id);
-  // throw new Error()
   if (book) {
     res.render('books/update-book' , { book, title: 'Update Book'} );
   } else {
-    res.render('error', { title: 'Page Not Found', servError: 'Server Error' });
+    res.sendStatus(404);
   }
 }));
 
