@@ -8,7 +8,6 @@ function asyncHandler(cb){
     try {
       await cb(req, res, next)
     } catch(error){
-      // console.error(error);
       res.status(500).send(error);
     }
   }
@@ -42,12 +41,14 @@ router.post('/new', asyncHandler(async (req, res) => {
 }));
 
 
-router.get('/:id', asyncHandler(async (req, res) => {
+router.get('/:id', asyncHandler(async (req, res, next) => {
   const book = await Book.findByPk(req.params.id);
   if (book) {
     res.render('books/update-book' , { book, title: 'Update Book'} );
   } else {
-    res.sendStatus(404);
+    // res.sendStatus(404);
+    console.log('first error');
+    next();
   }
 }));
 
