@@ -1,5 +1,6 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const createError = require('http-errors');
+const router = express.Router();
 const { Book } = require('../models');
 
 /* Handler function to wrap each route. */
@@ -46,9 +47,7 @@ router.get('/:id', asyncHandler(async (req, res, next) => {
   if (book) {
     res.render('books/update-book' , { book, title: 'Update Book'} );
   } else {
-    // res.sendStatus(404);
-    console.log('first error');
-    next();
+    next(createError(404));
   }
 }));
 
