@@ -3,7 +3,12 @@ extends layout
 block content
   h1= error.status
   h3= title
-  p Sorry! We couldn&apos;t find the page you were looking for.
+  if error.status === 500
+    | Sorry! There was an unexpected error on the server.
+  else
+    | Sorry! We couldn&apos;t find the page you were looking for.
+    
+  br
   br
   p
     a.button(href='/') Home
