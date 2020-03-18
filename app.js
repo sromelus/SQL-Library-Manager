@@ -33,9 +33,10 @@ app.use((err, req, res, next) => {
   res.locals.message = err.message;
   res.locals.err = req.app.get('env') === 'development' ? err : {};
 
+
   // render the error page
   res.status(err.status);
-  res.render('page-not-found', { error: err, title: res.locals.message });
+  res.render('page-not-found', { error: res.locals.err, title: res.locals.message });
 });
 
 module.exports = app;
